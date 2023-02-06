@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="XU-A-compatible" content="IE-edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>base</title>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+    />
+
+   <!--- <link rel="stylesheet" href="student_style.css" />---> 
+
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.min.js"
+      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+      crossorigin="anonymous"
+    ></script>
+    <style >@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-size: 'Poppins',sans-serif;
+        }
+        
+        body{
+            width: 100%;
+            background: #E5E7EB;
+            position: relative;
+            display: flex;
+            
+        }
+        
+        #menu{
+            background:linear-gradient(45deg, #fab2ff 10%, #1904E5 100%);
+            width: 300px;
+            height: 100%;
+            position: fixed;
+            top:0;
+            left: 0;
+        
+        }
+        
+        #menu .logo{
+            display: flex;
+            align-items: center;
+            color: #fff;
+            padding: 30px 0 0 30px;
+        }
+        
+        #menu .logo img{
+        width: 40px;
+        margin-right: 15px;
+        border-radius:70% ;
+        }
+        
+        #menu .items{
+            margin-top: 40px;
+        }
+        
+        #menu .items li{
+            text-align: center;
+            list-style: none;
+            padding: 30px 0;
+            transition: 10s ease-in;
+        }
+        
+        #menu .items li:hover{
+            background: #07b5ea;
+            cursor: pointer;
+        }
+        
+        #menu .items li:nth-child(n):hover{
+            border-left:4px solid #fff ;
+            cursor: pointer;
+        }
+        
+        #menu .items li i{
+            color: black;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            font-size: 14px;
+            margin: 0 10px 0 25px;
+        }
+        
+        #menu .items li:hover i,
+        #menu .items li:hover a{
+            color: #f3f4f6;
+        }
+        
+        #menu .items li {
+            text-decoration: none;
+            color: rgb(254, 250, 250);
+            font-weight: 300px;
+            transition: 0.3s ease;
+            font-size: large;
+        }
+        
+        #inter{
+            width: calc(100%);
+            margin-left: 300px;
+            position: relative;
+        }
+        
+        #inter .navi{
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            background: #fff;
+            padding: 15px 30px;
+            border-bottom:3px solid #594ef7;
+            position: fixed;
+            width: calc(100%);
+        
+        }
+        #upheading{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+          /*  margin-left: 7rem;
+            margin-right: 7rem;
+            */
+            padding-left: 15rem;
+        }
+        
+        #inter .navi .search{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 14px;
+            border: 1px solid #d7dbe6;
+            border-radius: 4px;
+            margin-left: 0.2rem;
+            margin-right: 10rem;
+        
+        }
+        
+        #inter .navi .search i{
+            margin-right:20px;
+        }
+        
+        #inter .navi .search input{
+            border: none;
+            outline: none;
+            font-size: 14px;
+            
+        }
+        
+        #inter .navi .profile {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        
+        #inter .navi .profile i{
+            margin-right: 10px;
+            margin-left: 25rem;
+            font-size: 19px;
+            font-weight: 400;
+        }
+        
+        #inter .navi .profile img{
+            width: 30px;
+            height: 30px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-right: 10px;
+        
+        
+        }
+        
+        
+        .n1{
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        
+        #menu-btn{
+            display: none;
+            color: #2b2b2b;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        
+        .i-name{
+            color: #444a53;
+            padding: 30px 30px 0 30px;
+            font-size: 24px;
+            font-weight: 700;
+            margin-top: 70px;
+            margin-right: 20px;
+        }
+        
+        .value{
+            padding: 30px 30px 0 30px;
+            display: flex;
+        
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        /*.value .val-box{
+            background: rgb(116, 213, 12);
+            width: 170px;
+            padding: 5px 15px;
+            border-radius: 139px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        
+        .value .val-box svg{
+            font-size: 25px;
+            width:35px;
+            height: 48px;
+            line-height: 60px;
+            border-radius: 75%;
+            text-align: center; 
+            margin-right:15px;
+        }*/
+        .upload{
+            width: 7rem;
+            height: 4rem;
+            margin-left: 1rem;
+            margin-top: 10rem;
+            border-style: none;
+            border-radius: 4px;
+            background-color: #0016b988;
+            color: #ffff;
+        }
+        .upload:hover,#sem:hover{
+            background-color : #07b5ea; 
+            cursor: pointer;
+        }
+        
+        #heading{
+            font-size: 15px;
+            font-weight: 600;
+        }
+        
+        #uptable .td{
+            text-align: left;
+        
+        }
+        #midtable td{
+            text-align: center;
+            border:1px solid black ;
+        }
+        #lasttable td {
+            text-align: left;
+            border-bottom: #2b2b2b;
+            column-width: 150pxpx;
+        
+        }
+        @media(max-width:956px){
+            #upheading{
+                padding-left: 9rem;
+            }
+        }
+        
+        @media(max-width:1029px){
+            #upheading{
+                padding-left: 12rem;
+            }
+        }
+        @media (max-width:769px){
+            #menu {
+            
+                width: 200px; 
+                position: fixed;
+                left: -200px;
+               transition : 0.3 ease;
+            }
+            #menu.active{
+                left: 0px;
+            }
+            #menu-btn{
+                display: initial;
+            }
+            #inter {
+                width: 100%;
+                margin-left: 0px;
+                display: inline-block;
+                transition : 0.3 ease;
+            }
+            #menu.active~ #inter{
+                width: calc(100% - 200px);
+                margin-left:200px ;
+                transition : 0.3 ease;
+                
+            }
+            #inter .navi {
+              width: 100%;
+            }
+            .value {
+                padding: 30px 30px 0 30px;
+               justify-content: flex-start;
+            }
+            .value .val-box {
+                padding: 16px 20px;
+                margin: 10px 20px 10px 0;
+            }
+            table{
+                width: 100%;
+                border-collapse: collapse;
+            }
+            #upheading{
+                padding-left: 8rem;
+            }
+        }
+        
+        @media(max-width:477px){
+            #inter.navi{
+                padding: 15px;
+            }
+            #inter .navi .search input{
+                width: 150px;
+            }
+            .i-name{
+                padding: 30px 15px 0 15px;
+            }
+            .value{
+                padding: 15px 15px 0 15px;
+            }
+            .value .val-box{
+               max-width: 95%; 
+                margin: 8px 0;
+                
+            }
+            #heading{
+                text-align: center;
+                padding-left: auto;
+            }
+            .board{
+                margin: 30px 15px 30px 15px;
+            }
+            #upheading{
+                padding-left: 4rem;
+            }
+        }
+        
+        @media(max-width:534px){
+            .i-name{
+                margin-top: 100px;
+            }
+            #upheading{
+                padding-left: 2rem;
+            }
+        }
+        
+        #form .inputbox{
+            position: relative;
+        }
+        #text{
+            display: block;
+            color: #000;
+            font-weight: 300;
+            font-style: italic;
+            padding: 5px;
+        }
+        #form .Invalid.inputbox::before{
+            content: '';
+            position: absolute;
+            right: 12px;
+            top: 12px;
+            width: 24px;
+            height: 24px;
+            background: url(invalid.png);
+            background-size: cover;
+            z-index: 1000;
+        }
+        
+        #form .valid .inputbox::before{
+            content: '';
+            position: absolute;
+            right: 12px;
+            top: 12px;
+            width: 24px;
+            height: 24px;
+            background: url(https://drive.google.com/file/d/1beFm8cVQvnju5CHqrTREV_CNQyL8PcpA/view?usp=sharing);
+            background-size: cover;
+            z-index: 1000;
+        }
+        
+        </style>
+  </head>
+
+  <body>
+    <aside id="menu">
+      <div class="logo">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuifnuAf5eoTwRtNwuLq53TA57V4-IvENVDg&usqp=CAU"
+          alt=""
+        />
+
+        <h2>SCRAP RESULT</h2>
+      </div>
+
+      <div class="items">
+        <li>Result</li>
+        <li>Scholarship Detail</li>
+        <li>Admin Login</li>
+        <li>Feedback</li>
+        <li>Notice</li>
+        <li>Contact us</li>
+      </div>
+    </aside>
+
+    <section id="inter">
+      <div class="navi">
+        <div class="n1">
+          <div id="menu-btn">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="35"
+              height="35"
+              preserveAspectRatio="xMidYMid meet"
+              viewBox="0 0 1024 1024"
+            >
+              <path
+                fill="currentColor"
+                d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zM380 696c-22.1 0-40-17.9-40-40s17.9-40 40-40s40 17.9 40 40s-17.9 40-40 40zm0-144c-22.1 0-40-17.9-40-40s17.9-40 40-40s40 17.9 40 40s-17.9 40-40 40zm0-144c-22.1 0-40-17.9-40-40s17.9-40 40-40s40 17.9 40 40s-17.9 40-40 40zm304 272c0 4.4-3.6 8-8 8H492c-4.4 0-8-3.6-8-8v-48c0-4.4 3.6-8 8-8h184c4.4 0 8 3.6 8 8v48zm0-144c0 4.4-3.6 8-8 8H492c-4.4 0-8-3.6-8-8v-48c0-4.4 3.6-8 8-8h184c4.4 0 8 3.6 8 8v48zm0-144c0 4.4-3.6 8-8 8H492c-4.4 0-8-3.6-8-8v-48c0-4.4 3.6-8 8-8h184c4.4 0 8 3.6 8 8v48z"
+              />
+            </svg>
+          </div>
+          &nbsp;
+          <div id="upheading"><h1>WELCOME TO SCRAP RESULT</h1></div>
+         
+        </div>
+
+        
+    </div>
+    </div>
+    </div>
+    <br />
+    <br />
+    </section>
+
+    <script src="student_page.js"></script>
+  </body>
+</html>
