@@ -1,0 +1,8 @@
+{% autoescape off %}
+Hello,
+
+You received a request for college registration on the website. Kindly follow the below link to verify the documents.
+
+http://127.0.0.1:8000/ScrapResultAdmin
+
+{% endautoescape %}

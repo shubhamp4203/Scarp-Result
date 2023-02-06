@@ -1,0 +1,38 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/login_style.css' %}"
+    />
+  </head>
+
+  <body>
+    <div class="box-form">
+      <div class="right">
+        <h1 style="text-align: center">Login Here</h1>
+        <form method="POST" action="">
+          {% csrf_token %}
+          <div class="inputs">
+            <input type="text" placeholder="Username" name="username" />
+            <br /><br />
+            <input type="password" placeholder="Password" name="password" />
+          </div>
+          <br />
+          <div class="remember-me--forget-password">
+            <p><a href="{% url 'password_reset' %}">Forgot Password</a></p>
+          </div>
+          <div style="text-align: center">
+            <button style="align-content: center" class="upload">Login</button>
+          </div>
+          {% for m in messages %}
+          <p id="messages">{{m}}</p>
+          {% endfor %}
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

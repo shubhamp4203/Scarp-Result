@@ -1,0 +1,40 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>email_approve</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+    <link rel="stylesheet" href="{% static 'css/clg_style.css' %}">
+</head>
+<body>
+   <form method="POST" action="" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="email">
+        <div>
+            <h1> Register College </h1>
+        </div>
+            <div>
+                <label for="email_id">Email ID:</label>
+                <input type="email" name="email_id" id="email_id">
+            </div>
+            <br>
+            <div>
+                <label for="college_name">College name:</label>
+                <input type="text" name="college_name" id="college_name">
+            </div>
+            <br>
+            <div>
+                <label for="government_approval_letter">Government Approval Letter (pdf):</label>
+                <input type="file" name="government_approval_letter" id="government_approval_letter"
+                accept="application/pdf">
+            </div>
+            <br>
+            <input type="submit" value="Upload" class="upload">
+            <a href="{% url 'home' %}"><input type="button" value="back" class="upload" >
+    </div>
+</form>
+    
+</body>
+</html>

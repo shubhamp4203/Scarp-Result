@@ -1,0 +1,66 @@
+body {
+  background-image: linear-gradient(135deg, #fab2ff 10%, #1904e5 100%);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: "Open Sans", sans-serif;
+  color: #333333;
+}
+.email {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 20px;
+  position: relative;
+  margin: 2.2rem auto;
+  margin-top: 14rem;
+  margin-left: 28rem;
+  max-width: 500px;
+  background: #ffffff;
+  border-radius: 32px;
+  overflow: hidden;
+  /* display: flex; /
+    / flex: 1 1 100%; */
+  align-items: center;
+  justify-content: center;
+  box-shadow: 2px 2px 20px 15px #0000006e;
+  padding: 2rem;
+}
+#email_id,
+#college_name {
+  width: 22rem;
+  padding-top: 10px;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid black;
+}
+#government_approval_letter {
+  padding-top: 10px;
+  width: 16rem;
+}
+
+#back,
+#upload {
+  margin-top: -1rem;
+  margin-right: 2rem;
+  width: 5rem;
+  height: 2rem;
+  border-style: none;
+  border-radius: 4px;
+  background-color: #0016b988;
+  color: #ffff;
+}
+#back:hover,
+#upload:hover {
+  background-color: #07b5ea;
+  cursor: pointer;
+}
+
+h2 {
+  text-align: center;
+  display: grid;
+  font-size: em;
+  margin-block-start: -0.5em;
+  margin-block-end: 1.83em;
+  margin-inline-start: 17px;
+  margin-inline-end: 0px;
+  font-weight: 100;
+}

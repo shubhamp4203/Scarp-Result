@@ -1,0 +1,92 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+    <link rel="stylesheet" href="{% static 'css/admin_style.css' %}">
+</head>
+<body>
+  <aside id="menu">
+    <div class="logo">
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuifnuAf5eoTwRtNwuLq53TA57V4-IvENVDg&usqp=CAU"
+        alt=""
+      />
+
+      <h2 id="scrap">SCRAP RESULT</h2>
+    </div>
+
+    <div class="items">
+      <a href="{% url 'Institutehome' %}"><li>Result Upload</li></a>
+      <div class="dropdown">
+          <li>Settings</li>
+          <div class="dropdown-content">
+          <a href="{% url 'change_password' %}"><p>Change password</p></a>
+          <p>Change email</p>
+          </div>
+        </div>
+        <a href="{% url 'logout' %}"><li>Log Out</li></a>
+        
+     
+     
+    </div>
+  </aside>
+    <div class="boxy">
+    <section id="inter">
+      <div class="navi">
+        <div class="n1">
+          <div id="menu-btn">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="1"
+              height="1"
+              preserveAspectRatio="xMidYMid meet"
+              viewBox="0 0 1024 1024"
+            >
+        </svg>
+        <h1>INSTITUTE HOME PAGE</h1>
+    </div>
+        </div>
+      </div>
+    <div class="excel">
+    <form method="POST" action="" enctype="multipart/form-data">
+      {% csrf_token %}
+        <label for="excel_file">Upload result exel file:</label>
+        <input type="file" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" name="excel_file">
+        <br><br>
+        <label for="sem">Select Semester: </label>
+        <select name="Semester" id="sem">
+            <option value="1">Sem 1</option>
+            <option value="2">Sem 2</option>
+            <option value="3">Sem 3</option>
+            <option value="4">Sem 4</option>
+            <option value="5">Sem 5</option>
+            <option value="6">Sem 6</option>
+            <option value="7">Sem 7</option>
+            <option value="8">Sem 8</option>
+          </select>
+        <br><br>
+        <label for="program">Enter Program: </label>
+        <input type="text" name="program" id="input_excel_file">
+        <br><br>
+        <label for="exam">Enter exam name: </label>
+        <input type="text" name="exam" id="exam_name">
+        <br><br>
+        <label for="clg">Select college: </label>
+        <select name="clg" id="sem">
+          <option value="adit">Adit</option>
+          <option value="gcet">Gcet</option>
+          <option value="mbit">Mbit</option>
+          <option value="bvm">Bvm</option>
+          <option value="bvit">Bvit</option>
+        </select>
+        <br><br>
+        <input type="submit" value="Upload" class="upload">
+        </form>
+    </section>
+    </div>
+    </body>
+</html>

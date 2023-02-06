@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Home Page</title>
+
+    <link
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/style_apply.css'%}"
+    />
+  </head>
+  <body>
+    <form method="GET" action="">
+      <aside id="menu">
+        <div class="logo">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuifnuAf5eoTwRtNwuLq53TA57V4-IvENVDg&usqp=CAU"
+            alt=""
+          />
+
+          <h2 id="scrap">SCRAP RESULT</h2>
+        </div>
+
+        <div class="items">
+          <a href="{% url 'home' %}"><li>Result</li></a>
+          <a href="{% url 'scholarship' %}"><li>Scholarship Detail</li></a>
+          <a href="{% url 'login' %}"><li>Admin Login</li></a>
+          <a href="{% url 'clgregister' %}"><li>College Registration</li></a>
+          <a href="{% url 'contact' %}"><li>Contact us</li></a>
+        </div>
+      </aside>
+      <div class="box-form">
+        <div class="right">
+          <h1 style="text-align: center">Search Result</h1>
+
+          <div class="inputs">
+            <input type="tel" placeholder="Enrollment no." name="eroll" />
+            <br />
+            <br />
+            <label for="clg">Select college: </label>
+            <select name="clg" id="sem">
+              <option value="adit">Adit</option>
+              <option value="gcet">Gcet</option>
+              <option value="mbit">Mbit</option>
+              <option value="bvm">Bvm</option>
+              <option value="bvit">Bvit</option>
+            </select>
+            <br /><br />
+            <label for="sem">Select Sem </label>
+            <select name="Semester" id="sem">
+              <option value="1">Sem 1</option>
+              <option value="2">Sem 2</option>
+              <option value="3">Sem 3</option>
+              <option value="4">Sem 4</option>
+              <option value="5">Sem 5</option>
+              <option value="6">Sem 6</option>
+              <option value="7">Sem 7</option>
+              <option value="8">Sem 8</option>
+            </select>
+          </div>
+          <br />
+          <div style="text-align: center">
+            <button style="align-content: center" class="upload">search</button>
+          </div>
+          {% for m in messages %}
+          <p id="messages">{{m}}</p>
+          {% endfor %}
+        </div>
+      </div>
+    </form>
+  </body>
+</html>

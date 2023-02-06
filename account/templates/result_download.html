@@ -1,0 +1,151 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="XU-A-compatible" content="IE-edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Student Result</title>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+    />
+
+    <link rel="stylesheet" href="{% static 'css/student_style.css' %}" />
+
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.min.js"
+      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <aside id="menu">
+      <div class="logo">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuifnuAf5eoTwRtNwuLq53TA57V4-IvENVDg&usqp=CAU"
+          alt=""
+        />
+
+        <h2>SCRAP RESULT</h2>
+      </div>
+
+      <div class="items">
+        <a href="{% url 'home' %}"><li>Result</li></a>
+          <a href="{% url 'scholarship' %}"><li>Scholarship Detail</li></a>
+          <a href="{% url 'login' %}"><li>Admin Login</li></a>
+          <a href="{% url 'clgregister' %}"><li>College Registration</li></a>
+          <a href="{% url 'contact' %}"><li>Contact us</li></a>
+      </div>
+    </aside>
+
+    <section id="inter">
+      <div class="navi">
+        <div class="n1">
+          <div id="menu-btn">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="35"
+              height="35"
+              preserveAspectRatio="xMidYMid meet"
+              viewBox="0 0 1024 1024"
+            >
+              <path
+                fill="currentColor"
+                d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zM380 696c-22.1 0-40-17.9-40-40s17.9-40 40-40s40 17.9 40 40s-17.9 40-40 40zm0-144c-22.1 0-40-17.9-40-40s17.9-40 40-40s40 17.9 40 40s-17.9 40-40 40zm0-144c-22.1 0-40-17.9-40-40s17.9-40 40-40s40 17.9 40 40s-17.9 40-40 40zm304 272c0 4.4-3.6 8-8 8H492c-4.4 0-8-3.6-8-8v-48c0-4.4 3.6-8 8-8h184c4.4 0 8 3.6 8 8v48zm0-144c0 4.4-3.6 8-8 8H492c-4.4 0-8-3.6-8-8v-48c0-4.4 3.6-8 8-8h184c4.4 0 8 3.6 8 8v48zm0-144c0 4.4-3.6 8-8 8H492c-4.4 0-8-3.6-8-8v-48c0-4.4 3.6-8 8-8h184c4.4 0 8 3.6 8 8v48z"
+              />
+            </svg>
+          </div>
+          &nbsp;
+          <div id="upheading"><h1>WELCOME TO SCRAP RESULT</h1></div>
+      </div>
+
+      <div class="value">
+        <div class="val-box">
+          <div>
+            <button style="align-content: left" class="upload">Download</button>
+          </div>
+        </div>
+      </div>
+      <br />
+      <br />
+      <div class="boxy">
+        <table width="100%" id="update">
+          <thead>
+            <tr>
+              <h1 style="text-align: center"><strong>COLLEGE NAME</strong></h1>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="width: 15%"><b>Seat Number</b></td>
+              <td>:</td>
+              <td>{{seatnumber}}</td>
+            </tr>
+            <tr>
+              <td><b>Exam Name</b></td>
+              <td>:</td>
+              <td>{{examname}}</td>
+            </tr>
+            <tr>
+              <td><b>Enrollment Number</b></td>
+              <td>:</td>
+              <td>{{eroll}}</td>
+            </tr>
+            <tr>
+              <td><b>Program Name</b></td>
+              <td>:</td>
+              <td>{{prgname}}</td>
+            </tr>
+            <tr>
+              <td><b>Student Name</b></td>
+              <td>:</td>
+              <td>{{stdname}}</td>
+            </tr>
+            <tr>
+              <td><b>College Name</b></td>
+              <td>:</td>
+              <td>{{clgname}}</td>
+            </tr>
+          </tbody>
+        </table>
+        <br />
+        <table width="100%" id="midtable">
+          <tbody>
+            <tr>
+              <td><b>Course Code</b></td>
+              <td><b>Course Name</b></td>
+              <td><b>Course Credit</b></td>
+              <td><b>Grade Point</b></td>
+            </tr>
+            {% for i in marks%}
+            <tr>
+              <td>{{i.course_code}}</td>
+              <td>{{i.course_name}}</td>
+              <td>{{i.course_credit}}</td>
+              <td>{{i.grade}}</td>
+            </tr>
+            {%endfor%}
+          </tbody>
+        </table>
+        <br>
+        <table width="100%" id="lasttable">
+            <tbody>
+                <tr>
+                    <td><b>Program Name</b></td>
+                    <td>:</td>
+                    <td>{{prgname}}</td>
+                  </tr>
+            </tbody>
+          </table>
+      </div>
+    </section>
+
+    <script>
+      $("#menu-btn").click(function () {
+        $("#menu").toggleClass("active");
+      });
+    </script>
+  </body>
+</html>
