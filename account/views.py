@@ -165,10 +165,15 @@ def institutehomePage(request):
         for row in worksheet.iter_rows(min_row=2):
             row_data=[]
             for cell in row:
-                if cell.value == None:
+                if cell.value is None:
                     continue
                 row_data.append(str(cell.value))
             excel_data.append(row_data)
+        for i in excel_data:
+            if i == []:
+                excel_data.remove(i)
+        if len(excel_data[-1]) == 0:
+            excel_data.pop()
         for i in excel_data:
             try:
                 student_obj = Student.objects.get(name=i[0])
@@ -183,7 +188,7 @@ def institutehomePage(request):
             ccredit_index = 4
             cname_index = 5
             cmarks_index = 6
-            for j in range(int((len(row_data)-3)/4)):
+            for j in range(int((len(excel_data[0])-3)/4)):
                 marks_obj = Marks.objects.create(result=result_obj, course_code = i[ccode_index], course_credit=i[ccredit_index], course_name=i[cname_index], grade=i[cmarks_index])
                 marks_obj.save()
                 ccode_index += 4
@@ -192,7 +197,7 @@ def institutehomePage(request):
                 cmarks_index += 4
             grade_cal = Marks.objects.filter(result=result_obj)
             num = 0.0
-            denum = 0.0
+            denum = 0.0 
             for i in grade_cal:
                 num += i.grade*i.course_credit
                 denum += i.course_credit
@@ -275,11 +280,6 @@ def collegeregister(request):
 def contactdetail(request):
     context = {}
     return render(request, 'contact.html', context)
-
-@login_required(login_url='login')
-def changeemail(request):
-    if request.method == "POST":
-        email = request.POST.get('email_id')
 
 
 

@@ -16,7 +16,7 @@ urlpatterns = [
     path('ghome/', views.governmenthomePage, name="Governmenthome"),
     path('password_reset_', views.password_reset_request, name="password_reset"),
     path('college_registration/', views.collegeregister, name="clgregister"),
-    path('contact/', views.contactdetail, name="contact"),
+    path('contact/', views.contactdetail, name="contact")
 ]
 
 if settings.DEBUG:
