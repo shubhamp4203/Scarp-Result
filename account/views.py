@@ -278,7 +278,7 @@ def contactdetail(request):
 
 @login_required(login_url='login')
 def changeemail(request):
-    if request.method == "post":
+    if request.method == "POST":
         email = request.POST.get('email_id')
 
 
