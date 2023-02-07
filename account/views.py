@@ -211,7 +211,7 @@ def institutehomePage(request):
 @check_group("Government")
 def governmenthomePage(request):
     context = {}
-    return render(request, 'gov_home_page.html', context)
+    return render(request, 'ghome.html', context)
 
 
 def logoutUser(request):

@@ -1,40 +1,94 @@
 {% load static %}
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>email_approve</title>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
-    <link rel="stylesheet" href="{% static 'css/clg_style.css' %}">
-</head>
-<body>
-   <form method="POST" action="" enctype="multipart/form-data">
-    {% csrf_token %}
-    <div class="email">
-        <div>
-            <h1> Register College </h1>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>College Registration</title>
+
+    <link
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/clg_style.css'%}"
+    />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/Base.css'%}" />
+  </head>
+  <body>
+    <div class="mainbox">
+      <form method="GET" action="">
+        <aside id="menu">
+          <div class="logo">
+            <div class="icon">
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuifnuAf5eoTwRtNwuLq53TA57V4-IvENVDg&usqp=CAU"
+                alt=""
+              />
+            </div>
+            <div class="title">
+              <h3>SCRAP RESULT</h3>
+            </div>
+          </div>
+
+          <div class="items">
+            <a href="{% url 'home' %}"><li>Result</li></a>
+            <a href="{% url 'scholarship' %}"><li>Scholarship Detail</li></a>
+            <a href="{% url 'login' %}"><li>Admin Login</li></a>
+            <a href="{% url 'clgregister' %}"><li>College Registration</li></a>
+            <a href="{% url 'contact' %}"><li>Contact us</li></a>
+          </div>
+        </aside>
+        <div class="inter">
+          <div class="navi">
+            <p id="header">Welcome to scrap result</p>
+          </div>
+          <div class="boxy">
+            <div class="right">
+              <h1 style="text-align: center">Register Here</h1>
+              <form method="POST" action="">
+                {% csrf_token %}
+                <div class="inputs">
+                  <input
+                    type="email"
+                    placeholder="Email Id"
+                    name="email_id"
+                    id="email_id"
+                  />
+                  <br /><br />
+                  <input
+                    type="text"
+                    placeholder="College Name"
+                    name="college_name"
+                    id="college_name"
+                  />
+                  <br />
+                </div>
+                {% comment %}
+                <label for="government_approval_letter"
+                  >Government Approval Letter (pdf):</label
+                >
+                {% endcomment %}
+                <br />
+                <label for="government_approval_letter">
+                  Government Approval Letter
+                  <input
+                    style="border-bottom: none; font-size: 14px"
+                    type="file"
+                    name="government_approval_letter"
+                    id="government_approval_letter"
+                    accept="application/pdf"
+                  />
+                </label>
+              </form>
+            </div>
+          </div>
         </div>
-            <div>
-                <label for="email_id">Email ID:</label>
-                <input type="email" name="email_id" id="email_id">
-            </div>
-            <br>
-            <div>
-                <label for="college_name">College name:</label>
-                <input type="text" name="college_name" id="college_name">
-            </div>
-            <br>
-            <div>
-                <label for="government_approval_letter">Government Approval Letter (pdf):</label>
-                <input type="file" name="government_approval_letter" id="government_approval_letter"
-                accept="application/pdf">
-            </div>
-            <br>
-            <input type="submit" value="Upload" class="upload">
-            <a href="{% url 'home' %}"><input type="button" value="back" class="upload" >
+      </form>
     </div>
-</form>
-    
-</body>
+  </body>
 </html>

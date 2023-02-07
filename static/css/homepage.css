@@ -72,9 +72,18 @@
   background-color: #0016b988;
   color: #ffff;
 }
-.upload:hover {
+.upload:hover,
+#sem:hover {
   background-color: #07b5ea;
   cursor: pointer;
+}
+#sem {
+  width: 4rem;
+  height: 1.5rem;
+  border-style: none;
+  border-radius: 4px;
+  background-color: #0016b988;
+  color: #ffff;
 }
 
 #messages {

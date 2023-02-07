@@ -2,235 +2,263 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Scholarship Details</title>
+
+    <link
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
     <link
       rel="stylesheet"
       type="text/css"
-      href="{% static 'css/Scholarshipdetails.css' %}"
+      href="{% static 'css/Scholarshipdetails.css'%}"
     />
-    <title>Scholarship Details</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/Base.css'%}" />
   </head>
   <body>
-    <aside id="menu">
-      <div class="logo">
-        <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuifnuAf5eoTwRtNwuLq53TA57V4-IvENVDg&usqp=CAU"
-          alt=""
-        />
+    <div class="mainbox">
+      <aside id="menu">
+        <div class="logo">
+          <div class="icon">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuifnuAf5eoTwRtNwuLq53TA57V4-IvENVDg&usqp=CAU"
+              alt=""
+            />
+          </div>
+          <div class="title">
+            <h3>SCRAP RESULT</h3>
+          </div>
+        </div>
 
-        <h2>SCRAP RESULT</h2>
+        <div class="items">
+          <a href="{% url 'home' %}"><li>Result</li></a>
+          <a href="{% url 'scholarship' %}"><li>Scholarship Detail</li></a>
+          <a href="{% url 'login' %}"><li>Admin Login</li></a>
+          <a href="{% url 'clgregister' %}"><li>College Registration</li></a>
+          <a href="{% url 'contact' %}"><li>Contact us</li></a>
+        </div>
+      </aside>
+      <div class="inter">
+        <div class="navi">
+          <p id="header">Welcome to scrap result</p>
+        </div>
+        <div class="boxy">
+          <h3>Mukhymantri Yuva Swavlamban Yojna</h3>
+          <ul>
+            <li>Availabe for all categories(Gen/OBC/ST/SC).</li>
+            <li>Annual income must be less than 6 Lacks.</li>
+            <li>
+              Eligiblity is 80 percentile in 12th Science exam for freshers.
+            </li>
+            <li>
+              50% and above marks in previous exam for the renewal of
+              application.
+            </li>
+            <li>
+              75% or above attencdence in previous exam for the renewal of
+              application.
+            </li>
+            <li>tution fee grant and Hostel grant is available.</li>
+            <li>Income certificate is required.</li>
+            <li>
+              For more information visit
+              <a href="https://mysy.guj.nic.in/" target="_blank">MYSY </a>
+            </li>
+          </ul>
+
+          <h3>C.V.M Scholarship</h3>
+          <ul>
+            <li>Availabe for all categories(Gen/OBC/ST/SC).</li>
+            <li>Student has to be citizen of India.</li>
+            <li>Purely on the basis on the Merit and parents Income.</li>
+            <li>
+              For more information visit
+              <a href="https://www.cvmu.edu.in/scholarship" target="_blank"
+                >CVMU</a
+              >
+            </li>
+          </ul>
+
+          <h3>Scheduled Caste - S.C. Scholarship</h3>
+          <ul>
+            <li>Parents income less than 2.50 Lacs.</li>
+            <li>Food bills for students living in hostel.</li>
+            <li>
+              Instrumental Assitance is also is available.(for first year
+              students)
+            </li>
+            <li>Freeship Card scholarship is available.</li>
+            date
+            <li>Income certificate and caste certificate is required.</li>
+            <li>
+              For more information visit
+              <a
+                href="https://www.digitalgujarat.gov.in/LoginApp/Citizenlogin.aspx"
+                target="_blank"
+                >SC</a
+              >
+            </li>
+          </ul>
+          <h3>Scheduled Tribe - S.T. Scholarship</h3>
+          <ul>
+            <li>Parents income less than 2.50 Lacs.</li>
+            <li>For girls no income limit is required.</li>
+            <li>Food bills for students living in hostel.</li>
+            <li>
+              Instrumental Assitance is also is available.(for first year
+              students)
+            </li>
+            <li>Freeship Card scholarship is available.</li>
+            <li>Income certificate and caste certificate is required.</li>
+            <li>
+              For more information
+              <a
+                href="https://www.digitalgujarat.gov.in/LoginApp/Citizenlogin.aspx"
+                target="_blank"
+              >
+                ST
+              </a>
+            </li>
+          </ul>
+          <h3>Socially and Educationally Backward Class - SEBC Scholarship</h3>
+          <ul>
+            <li>
+              Parents income is less than 1.20 Lacs for boys and 1.40 Lacs for
+              girls.
+            </li>
+            <li>Income certificate and caste certificate is required.</li>
+            <li>Non-Cream layer certificate is required.</li>
+            <li>Food bill for student living in the hostel.</li>
+            <li>
+              Instrumental Assitance is also available(For first year student)
+            </li>
+            <li>
+              For more information visit
+              <a href="https://www.digitalgujarat.gov.in/GSSP/" target="_blank"
+                >SEBC</a
+              >
+            </li>
+          </ul>
+          <h3>Merit Cum Means Scholarship(For Minority Caste)</h3>
+          <ul>
+            <li>
+              Muslim, Sikhs, Christians, Buddhists, Jain and
+              Zoroastrains(Parsis)v have been notified as minority communities
+              under Section 2(c) of the National Commisssion for minority Act,
+              1992.
+            </li>
+            <li>
+              Scholarship will be awarded to the students who have secured not
+              less than 50% marks or equivalent grade in previous final
+              examination.
+            </li>
+            <li>
+              Annual income of parents/gaurdian from lall sources does not Rs.
+              2.50 lacs.
+            </li>
+            <li>
+              For more information visit
+              <a
+                href="https://www.minorityaffairs.gov.in/en/schemesperformance/scholarship-schemes"
+                target="_blank"
+                >Merit Cum</a
+              >
+            </li>
+          </ul>
+          <h3>AICTE Scholarship (Pragati and Saksham Scholarship)</h3>
+          <ul>
+            <li>
+              Pragati is MHRD scheme being implemented by of AICTE aimed at
+              providing assisstance for advanced of girls for pursuing technical
+              education.
+            </li>
+            <li>Two girls child per family are eligible</li>
+            <li>Family income is not more than 8 lacs per annum.</li>
+            <li>Income certificate is required.</li>
+            <li>
+              Saksham is MHRD scheme being implemented by of AICTE aimed at
+              providing encourgement and support to specially abled children to
+              pursue technical education.
+            </li>
+            <li>
+              specially abled student, having disability of not less than 40%.
+            </li>
+            <li>Family income not more than 8 lacs per annum.</li>
+            <li>
+              For more information visit
+              <a
+                href="https://www.aicte-pragati-saksham-gov.in/"
+                target="_blank"
+                >AICTE(P & S)</a
+              >
+            </li>
+          </ul>
+
+          <h3>AICTE scholarship (J & K Student)</h3>
+          <ul>
+            <li>
+              J & K cells deals with implementation of prime minister special
+              scholarship to J & K students to pursue undergraduate studies
+              outside the state of Jammu and Kashmir.
+            </li>
+            <li>
+              For more information visit
+              <a
+                href="https://jkdswdj.jk.gov.in/scholarship.html"
+                target="_blank"
+                >AICTE(J & K)</a
+              >
+            </li>
+          </ul>
+          <h3>Prime Minister's Scholarship Scheme(PMSS)</h3>
+          <ul>
+            <li>
+              Student must be a dependent wardwidow of deceased CAPFS & AR/Ex
+              CAPE & AR retired and serving CAPFS & AR/State Police Personnel
+            </li>
+            <li>
+              The applicants should have obtained at least 60% marks or above in
+              the minimum educational qualification.
+            </li>
+            <li>
+              For renewal in subsequent years, the applicants need to obtain at
+              least 50% marks in the qualifying examination in one attempt.
+            </li>
+            <li>
+              For more information visit
+              <a href="https://www.aicte-india.org/bureaus/jk" target="_blank"
+                >PMSS</a
+              >
+            </li>
+          </ul>
+
+          <h3>NIU Scholarship</h3>
+          <ul>
+            <li>
+              The candidate must have scored at least 50 per cent aggregate in
+              Class 12 or equivalent from a recognized board or university.
+            </li>
+            <li>
+              Those who have appeared for the Class 12 exam are also eligible to
+              apply. However, their admission will be provisional. They have to
+              submit Class 12 certificate before the deadline set by the
+              university.
+            </li>
+            <li>
+              for more information visit
+              <a
+                href="https://www.googleadservices.com/pagead/aclk?sa=L&ai=DChcSEwj1yO-d5c36AhWFGysKHd5IDX0YABAAGgJzZg&ohost=www.google.com&cid=CAESbeD2pEgLllJ-crfPWjp6tzi7Df2A0yuPYEEmz63NX6GuXByr12tZEPEmYU6lI6wbYsH6Huzlvdkhl4WoIy2HH9s7CHie6KR5vumKkoDdHwLJ4mDshCOiJ4tstYjiqn1FTHEC0ENkaTpByhH3nQg&sig=AOD64_1T9oCnGv90H2wSLYy7lePhC6q7yw&q&adurl&ved=2ahUKEwiQ_-Gd5c36AhWH2TgGHXwLBiIQ0Qx6BAgGEAE"
+                target="_blank"
+                >NIU Scholarship</a
+              >
+            </li>
+          </ul>
+        </div>
       </div>
-
-      <div class="items">
-        <a href="{% url 'home' %}"><li>Result</li></a>
-        <a href="{% url 'scholarship' %}"><li>Scholarship Detail</li></a>
-        <a href="{% url 'login' %}"><li>Admin Login</li></a>
-        <a href="{% url 'clgregister' %}"><li>College Registration</li></a>
-        <a href="{% url 'contact' %}"><li>Contact us</li></a>
-      </div>
-    </aside>
-
-    <div class="container">
-      <h1>Scholarship &nbsp; Details</h1>
-
-      <h3>Mukhymantri Yuva Swavlamban Yojna</h3>
-      <ul>
-        <li>Availabe for all categories(Gen/OBC/ST/SC).</li>
-        <li>Annual income must be less than 6 Lacks.</li>
-        <li>Eligiblity is 80 percentile in 12th Science exam for freshers.</li>
-        <li>
-          50% and above marks in previous exam for the renewal of application.
-        </li>
-        <li>
-          75% or above attencdence in previous exam for the renewal of
-          application.
-        </li>
-        <li>tution fee grant and Hostel grant is available.</li>
-        <li>Income certificate is required.</li>
-        <li>
-          For more information visit
-          <a href="https://mysy.guj.nic.in/" target="_blank">MYSY </a>
-        </li>
-      </ul>
-
-      <h3>C.V.M Scholarship</h3>
-      <ul>
-        <li>Availabe for all categories(Gen/OBC/ST/SC).</li>
-        <li>Student has to be citizen of India.</li>
-        <li>Purely on the basis on the Merit and parents Income.</li>
-        <li>
-          For more information visit
-          <a href="https://www.cvmu.edu.in/scholarship" target="_blank">CVMU</a>
-        </li>
-      </ul>
-
-      <h3>Scheduled Caste - S.C. Scholarship</h3>
-      <ul>
-        <li>Parents income less than 2.50 Lacs.</li>
-        <li>Food bills for students living in hostel.</li>
-        <li>
-          Instrumental Assitance is also is available.(for first year students)
-        </li>
-        <li>Freeship Card scholarship is available.</li>
-        date
-        <li>Income certificate and caste certificate is required.</li>
-        <li>
-          For more information visit
-          <a
-            href="https://www.digitalgujarat.gov.in/LoginApp/Citizenlogin.aspx"
-            target="_blank"
-            >SC</a
-          >
-        </li>
-      </ul>
-      <h3>Scheduled Tribe - S.T. Scholarship</h3>
-      <ul>
-        <li>Parents income less than 2.50 Lacs.</li>
-        <li>For girls no income limit is required.</li>
-        <li>Food bills for students living in hostel.</li>
-        <li>
-          Instrumental Assitance is also is available.(for first year students)
-        </li>
-        <li>Freeship Card scholarship is available.</li>
-        <li>Income certificate and caste certificate is required.</li>
-        <li>
-          For more information
-          <a
-            href="https://www.digitalgujarat.gov.in/LoginApp/Citizenlogin.aspx"
-            target="_blank"
-          >
-            ST
-          </a>
-        </li>
-      </ul>
-      <h3>Socially and Educationally Backward Class - SEBC Scholarship</h3>
-      <ul>
-        <li>
-          Parents income is less than 1.20 Lacs for boys and 1.40 Lacs for
-          girls.
-        </li>
-        <li>Income certificate and caste certificate is required.</li>
-        <li>Non-Cream layer certificate is required.</li>
-        <li>Food bill for student living in the hostel.</li>
-        <li>
-          Instrumental Assitance is also available(For first year student)
-        </li>
-        <li>
-          For more information visit
-          <a href="https://www.digitalgujarat.gov.in/GSSP/" target="_blank"
-            >SEBC</a
-          >
-        </li>
-      </ul>
-      <h3>Merit Cum Means Scholarship(For Minority Caste)</h3>
-      <ul>
-        <li>
-          Muslim, Sikhs, Christians, Buddhists, Jain and Zoroastrains(Parsis)v
-          have been notified as minority communities under Section 2(c) of the
-          National Commisssion for minority Act, 1992.
-        </li>
-        <li>
-          Scholarship will be awarded to the students who have secured not less
-          than 50% marks or equivalent grade in previous final examination.
-        </li>
-        <li>
-          Annual income of parents/gaurdian from lall sources does not Rs. 2.50
-          lacs.
-        </li>
-        <li>
-          For more information visit
-          <a
-            href="https://www.minorityaffairs.gov.in/en/schemesperformance/scholarship-schemes"
-            target="_blank"
-            >Merit Cum</a
-          >
-        </li>
-      </ul>
-      <h3>AICTE Scholarship (Pragati and Saksham Scholarship)</h3>
-      <ul>
-        <li>
-          Pragati is MHRD scheme being implemented by of AICTE aimed at
-          providing assisstance for advanced of girls for pursuing technical
-          education.
-        </li>
-        <li>Two girls child per family are eligible</li>
-        <li>Family income is not more than 8 lacs per annum.</li>
-        <li>Income certificate is required.</li>
-        <li>
-          Saksham is MHRD scheme being implemented by of AICTE aimed at
-          providing encourgement and support to specially abled children to
-          pursue technical education.
-        </li>
-        <li>
-          specially abled student, having disability of not less than 40%.
-        </li>
-        <li>Family income not more than 8 lacs per annum.</li>
-        <li>
-          For more information visit
-          <a href="https://www.aicte-pragati-saksham-gov.in/" target="_blank"
-            >AICTE(P & S)</a
-          >
-        </li>
-      </ul>
-
-      <h3>AICTE scholarship (J & K Student)</h3>
-      <ul>
-        <li>
-          J & K cells deals with implementation of prime minister special
-          scholarship to J & K students to pursue undergraduate studies outside
-          the state of Jammu and Kashmir.
-        </li>
-        <li>
-          For more information visit
-          <a href="https://jkdswdj.jk.gov.in/scholarship.html" target="_blank"
-            >AICTE(J & K)</a
-          >
-        </li>
-      </ul>
-      <h3>Prime Minister's Scholarship Scheme(PMSS)</h3>
-      <ul>
-        <li>
-          Student must be a dependent wardwidow of deceased CAPFS & AR/Ex CAPE &
-          AR retired and serving CAPFS & AR/State Police Personnel
-        </li>
-        <li>
-          The applicants should have obtained at least 60% marks or above in the
-          minimum educational qualification.
-        </li>
-        <li>
-          For renewal in subsequent years, the applicants need to obtain at
-          least 50% marks in the qualifying examination in one attempt.
-        </li>
-        <li>
-          For more information visit
-          <a href="https://www.aicte-india.org/bureaus/jk" target="_blank"
-            >PMSS</a
-          >
-        </li>
-      </ul>
-
-      <h3>NIU Scholarship</h3>
-      <ul>
-        <li>
-          The candidate must have scored at least 50 per cent aggregate in Class
-          12 or equivalent from a recognized board or university.
-        </li>
-        <li>
-          Those who have appeared for the Class 12 exam are also eligible to
-          apply. However, their admission will be provisional. They have to
-          submit Class 12 certificate before the deadline set by the university.
-        </li>
-        <li>
-          for more information visit
-          <a
-            href="https://www.googleadservices.com/pagead/aclk?sa=L&ai=DChcSEwj1yO-d5c36AhWFGysKHd5IDX0YABAAGgJzZg&ohost=www.google.com&cid=CAESbeD2pEgLllJ-crfPWjp6tzi7Df2A0yuPYEEmz63NX6GuXByr12tZEPEmYU6lI6wbYsH6Huzlvdkhl4WoIy2HH9s7CHie6KR5vumKkoDdHwLJ4mDshCOiJ4tstYjiqn1FTHEC0ENkaTpByhH3nQg&sig=AOD64_1T9oCnGv90H2wSLYy7lePhC6q7yw&q&adurl&ved=2ahUKEwiQ_-Gd5c36AhWH2TgGHXwLBiIQ0Qx6BAgGEAE"
-            target="_blank"
-            >NIU Scholarship</a
-          >
-        </li>
-      </ul>
     </div>
   </body>
 </html>
