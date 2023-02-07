@@ -27,7 +27,7 @@ class Result(models.Model):
     sem = models.IntegerField()
     exam_name = models.CharField(max_length=30)
     percnt = models.FloatField(null=True)
-    cgpa = models.FloatField(null=True)
+    sgpa = models.FloatField(null=True)
     seat_no = models.CharField(unique=True, max_length=30, null=True)
 
 class Marks(models.Model):
