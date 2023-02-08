@@ -21,7 +21,8 @@
   </head>
   <body>
     <div class="mainbox">
-      <form method="GET" action="">
+      <form method="POST" action="">
+        {% csrf_token %}
         <aside id="menu">
           <div class="logo">
             <div class="icon">

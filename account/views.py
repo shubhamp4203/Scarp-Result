@@ -124,17 +124,17 @@ def loginPage(request):
         return render(request, 'login.html', context)
 
 def homepage(request):
-    if request.method == "GET":
-        eroll = request.GET.get('eroll')
-        sem = request.GET.get('Semester')
-        clgname = request.GET.get('clg')
+    if request.method == "POST":
+        eroll = request.POST.get('eroll')
+        sem = request.POST.get('Semester')
+        clgname = request.POST.get('clg')
         if eroll == "" or sem == "" or clgname == "":
             messages.error(request, 'No result found')
-            return render(request, 'homepage.html')
+            return redirect('home')
         student_info = Student.objects.filter(Q(enrollment_number=eroll) & Q(clg_name=clgname)) 
         if student_info.count()==0:
             messages.error(request, 'No result found')
-            return render(request, 'homepage.html')
+            return redirect('home')
         result_info = Result.objects.filter(Q(student=student_info[0]) & Q(sem=sem))
         marks_info = Marks.objects.filter(Q(result=result_info[0]))
         for i,j in zip(student_info, result_info):
@@ -142,9 +142,9 @@ def homepage(request):
             examname = j.exam_name
             prgname = i.program_name
             stdname = i.name
-            cgpa = j.cgpa
+            sgpa = j.sgpa
             percent = j.percnt
-        context = {'cgpa':cgpa, 'percent':percent, 'eroll': eroll, 'clgname': clgname, 'sem':sem, 'seatnumber': seatnumber, 'examname': examname, 'prgname': prgname, 'stdname': stdname, 'marks': marks_info}
+        context = {'sgpa':sgpa, 'percent':percent, 'eroll': eroll, 'clgname': clgname, 'sem':sem, 'seatnumber': seatnumber, 'examname': examname, 'prgname': prgname, 'stdname': stdname, 'marks': marks_info}
         return render(request, 'test_result.html', context)
     context = {}
     return render(request, 'homepage.html', context)
@@ -201,8 +201,8 @@ def institutehomePage(request):
             for i in grade_cal:
                 num += i.grade*i.course_credit
                 denum += i.course_credit
-            result_obj.cgpa = num/denum
-            result_obj.percnt = (result_obj.cgpa-0.5)*10
+            result_obj.sgpa = round(num/denum)
+            result_obj.percnt = (result_obj.sgpa-0.5)*10
             result_obj.save()
     context = {}
     return render(request, 'admin.html', context)
