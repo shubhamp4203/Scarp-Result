@@ -1,0 +1,101 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Result</title>
+
+    <link
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/student_detail.css'%}"
+    />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/Base.css'%}" />
+  </head>
+  <body>
+    <div class="boxy">
+      <table width="100%" id="update">
+        <thead>
+          <br /><br />
+          <tr>
+            <h1 style="text-align: center">
+              <strong>{{clgname }}</strong>
+            </h1>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="width: 15%"><b>Seat Number</b></td>
+            <td>:</td>
+            <td>{{seatnumber}}</td>
+          </tr>
+          <tr>
+            <td><b>Exam Name</b></td>
+            <td>:</td>
+            <td>{{examname}}</td>
+          </tr>
+          <tr>
+            <td><b>Enrollment Number</b></td>
+            <td>:</td>
+            <td>{{eroll}}</td>
+          </tr>
+          <tr>
+            <td><b>Program Name</b></td>
+            <td>:</td>
+            <td>{{prgname}}</td>
+          </tr>
+          <tr>
+            <td><b>Student Name</b></td>
+            <td>:</td>
+            <td>{{stdname}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <br />
+      <table width="100%" id="midtable">
+        <tbody>
+          <tr>
+            <td><b>Course Code</b></td>
+            <td><b>Course Name</b></td>
+            <td><b>Course Credit</b></td>
+            <td><b>Grade Point</b></td>
+          </tr>
+          {% for i in marks%}
+          <tr>
+            <td>{{i.course_code}}</td>
+            <td>{{i.course_name}}</td>
+            <td>{{i.course_credit}}</td>
+            <td>{{i.grade}}</td>
+          </tr>
+          {%endfor%}
+        </tbody>
+      </table>
+      <br />
+      <table width="100%" id="lasttable">
+        <tbody>
+          <tr>
+            <td style="width: 15%"><b>Sgpa</b></td>
+            <td style="width: 5%">:</td>
+            <td>{{sgpa}}</td>
+          </tr>
+          <tr>
+            <td><b>Percent</b></td>
+            <td>:</td>
+            <td>{{percent}}%</td>
+          </tr>
+        </tbody>
+      </table>
+      <div>
+        <button class="upload" id="just">Download</button>
+      </div>
+    </div>
+    <script src="{% static '/js/student_page.js'%}"></script>
+  </body>
+</html>

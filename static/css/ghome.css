@@ -1,0 +1,135 @@
+.inter {
+  width: 77vw;
+  height: 100vh;
+  position: absolute;
+  left: 23%;
+  background: #54464890;
+}
+
+.mainbox {
+  width: 100vw;
+  height: 100vh;
+}
+.whole {
+  position: absolute;
+  margin: 0.5rem auto;
+  margin-top: 2%;
+  width: 77vw;
+  background: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  flex: 1 1 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 2rem;
+}
+
+::placeholder {
+  color: black;
+  opacity: 60%;
+  align-content: center;
+}
+
+.upperFilters {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  /* padding: 1rem; */
+  background-color: #ffffff;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.shown_Result {
+  overflow: hidden;
+  margin-top: 3%;
+  position: absolute;
+  width: 76vw;
+  height: 70vh;
+  border-radius: 10px;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  background: #ffffff;
+  left: 50%;
+}
+.upload {
+  width: 5rem;
+  height: 2rem;
+  border-style: none;
+  border-radius: 4px;
+  background-color: #0016b988;
+  color: #ffff;
+}
+.upload:hover,
+#sem:hover,
+#showresult:hover {
+  background-color: #07b5ea;
+  cursor: pointer;
+}
+
+.lowerFilter {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.movement {
+  display: flex;
+  list-style-type: none;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  gap: 5rem;
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translate(-50%);
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+}
+
+#clg {
+  width: 20vw;
+  height: 5vh;
+  border: none;
+  border-bottom: #594ef7 solid 2px;
+  outline: none;
+}
+
+#sem {
+  width: 4rem;
+  height: 1.5rem;
+  border-style: none;
+  border-radius: 4px;
+  background-color: #0016b988;
+  color: #ffff;
+}
+
+.dropdown:hover .dropdown-content,
+#menu .items li:hover,
+#menu .items li:hover i,
+#menu .items li:hover a {
+  display: block;
+}
+
+.dropdown {
+  position: relative;
+  display: block;
+}
+
+.dropdown-content {
+  display: none;
+  position: fixed;
+  background-color: #f9f9f9;
+  width: 23vw;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  /* padding: 12px 16px;*/
+  z-index: 1;
+  color: #1904e5;
+}
+
+#showresult {
+  height: 6.5vh;
+  width: 100vw;
+  border-radius: 10px;
+}

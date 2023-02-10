@@ -51,36 +51,39 @@
           <div class="boxy">
             <div class="right">
               <h1 style="text-align: center">Search Result</h1>
-
+              <input type="tel" placeholder="Enrollment no." name="eroll" />
               <div class="inputs">
-                <input type="tel" placeholder="Enrollment no." name="eroll" />
                 <br />
                 <br />
-                <label for="clg">Select college: </label>
-                <select name="clg" id="sem">
-                  <option value="adit">Adit</option>
-                  <option value="gcet">Gcet</option>
-                  <option value="mbit">Mbit</option>
-                  <option value="bvm">Bvm</option>
-                  <option value="bvit">Bvit</option>
-                </select>
+                <label for="clg"
+                  >Select college:
+                  <select name="clg" id="sem">
+                    <option value="adit">Adit</option>
+                    <option value="gcet">Gcet</option>
+                    <option value="mbit">Mbit</option>
+                    <option value="bvm">Bvm</option>
+                    <option value="bvit">Bvit</option>
+                  </select>
+                </label>
                 <br /><br />
-                <label for="sem">Select Sem </label>
-                <select name="Semester" id="sem">
-                  <option value="1">Sem 1</option>
-                  <option value="2">Sem 2</option>
-                  <option value="3">Sem 3</option>
-                  <option value="4">Sem 4</option>
-                  <option value="5">Sem 5</option>
-                  <option value="6">Sem 6</option>
-                  <option value="7">Sem 7</option>
-                  <option value="8">Sem 8</option>
-                </select>
+                <label for="sem"
+                  >Select Sem
+                  <select name="Semester" id="sem">
+                    <option value="1">Sem 1</option>
+                    <option value="2">Sem 2</option>
+                    <option value="3">Sem 3</option>
+                    <option value="4">Sem 4</option>
+                    <option value="5">Sem 5</option>
+                    <option value="6">Sem 6</option>
+                    <option value="7">Sem 7</option>
+                    <option value="8">Sem 8</option>
+                  </select>
+                </label>
               </div>
               <br />
               <div style="text-align: center">
                 <button style="align-content: center" class="upload">
-                  search
+                  Search
                 </button>
               </div>
               {% for m in messages %}

@@ -52,7 +52,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   margin: 0.2rem auto;
-  max-width: 95%;
+  width: 60%;
   background: #ffffff;
   border-radius: 10px;
   overflow: hidden;
@@ -73,6 +73,20 @@
   color: #ffff;
 }
 .upload:hover {
+  background-color: #07b5ea;
+  cursor: pointer;
+}
+
+input::file-selector-button {
+  font-weight: bold;
+  background-color: #0016b988;
+  color: #ffffff;
+  padding: 0.5em;
+  border: thin solid grey;
+  border-radius: 3px;
+}
+
+input::file-selector-button:hover {
   background-color: #07b5ea;
   cursor: pointer;
 }

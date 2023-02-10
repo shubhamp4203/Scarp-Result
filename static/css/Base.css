@@ -28,9 +28,7 @@ body {
   top: 2vh;
   left: 2vw;
   display: flex;
-  /* align-items: center; */
   color: #fff;
-  /* padding: 30px 0 0 30px; */
 }
 .icon {
   width: 5vw;
@@ -94,11 +92,9 @@ a {
 }
 
 .navi {
-  /* display: flex; */
   align-items: center;
   justify-content: center;
   background: #fff;
-  /* padding: 15px 0px; */
   border-bottom: 3px solid #594ef7;
   position: fixed;
   width: 100vw;
@@ -106,7 +102,6 @@ a {
   z-index: 1;
 }
 #upheading {
-  /* display: flex; */
   justify-content: center;
   align-items: center;
   text-align: center;

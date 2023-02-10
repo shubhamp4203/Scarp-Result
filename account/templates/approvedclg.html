@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Admin Page</title>
+
+    <link
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/pending.css'%}"
+    />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/Base.css'%}" />
+  </head>
+
+  <body>
+    <div class="mainbox">
+      <aside id="menu">
+        <div class="logo">
+          <div class="icon">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuifnuAf5eoTwRtNwuLq53TA57V4-IvENVDg&usqp=CAU"
+              alt=""
+            />
+          </div>
+          <div class="title">
+            <h3>SCRAP RESULT</h3>
+          </div>
+        </div>
+
+        <div class="items">
+          <a href="{% url 'Adminhome' %}"><li>Pending Colleges</li></a>
+          <a href="{% url 'approved' %}"><li>Approved Colleges</li></a>
+          <a href="{% url 'logout' %}"><li>Logout</li></a>
+        </div>
+      </aside>
+      <div class="inter">
+        <div class="navi">
+          <p id="header">Welcome to scrap result</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

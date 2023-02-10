@@ -21,69 +21,74 @@
   </head>
   <body>
     <div class="mainbox">
-      <form method="GET" action="">
-        <aside id="menu">
-          <div class="logo">
-            <div class="icon">
-              <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuifnuAf5eoTwRtNwuLq53TA57V4-IvENVDg&usqp=CAU"
-                alt=""
-              />
-            </div>
-            <div class="title">
-              <h3>SCRAP RESULT</h3>
-            </div>
+      <aside id="menu">
+        <div class="logo">
+          <div class="icon">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuifnuAf5eoTwRtNwuLq53TA57V4-IvENVDg&usqp=CAU"
+              alt=""
+            />
           </div>
-
-          <div class="items">
-            <a href="{% url 'home' %}"><li>Result</li></a>
-            <a href="{% url 'scholarship' %}"><li>Scholarship Detail</li></a>
-            <a href="{% url 'login' %}"><li>Admin Login</li></a>
-            <a href="{% url 'clgregister' %}"><li>College Registration</li></a>
-            <a href="{% url 'contact' %}"><li>Contact us</li></a>
-          </div>
-        </aside>
-        <div class="inter">
-          <div class="navi">
-            <p id="header">Welcome to scrap result</p>
-          </div>
-          <div class="boxy">
-            <div class="right">
-              <h1 style="text-align: center">Register Here</h1>
-              <form method="POST" action="">
-                {% csrf_token %}
-                <div class="inputs">
-                  <input
-                    type="email"
-                    placeholder="Email Id"
-                    name="email_id"
-                    id="email_id"
-                  />
-                  <br /><br />
-                  <input
-                    type="text"
-                    placeholder="College Name"
-                    name="college_name"
-                    id="college_name"
-                  />
-                  <br />
-                </div>
-                <br />
-                <label for="government_approval_letter">
-                  Government Approval Letter
-                  <input
-                    style="border-bottom: none; font-size: 14px"
-                    type="file"
-                    name="government_approval_letter"
-                    id="government_approval_letter"
-                    accept="application/pdf"
-                  />
-                </label>
-              </form>
-            </div>
+          <div class="title">
+            <h3>SCRAP RESULT</h3>
           </div>
         </div>
-      </form>
+
+        <div class="items">
+          <a href="{% url 'home' %}"><li>Result</li></a>
+          <a href="{% url 'scholarship' %}"><li>Scholarship Detail</li></a>
+          <a href="{% url 'login' %}"><li>Admin Login</li></a>
+          <a href="{% url 'clgregister' %}"><li>College Registration</li></a>
+          <a href="{% url 'contact' %}"><li>Contact us</li></a>
+        </div>
+      </aside>
+      <div class="inter">
+        <div class="navi">
+          <p id="header">Welcome to scrap result</p>
+        </div>
+        <div class="boxy">
+          <div class="right">
+            <h1 style="text-align: center">Register Here</h1>
+            <form method="POST" action="" enctype="multipart/form-data">
+              {% csrf_token %}
+              <div class="inputs">
+                <input
+                  required
+                  type="email"
+                  placeholder="Email Id"
+                  name="email_id"
+                  id="email_id"
+                />
+                <br /><br />
+                <input
+                  required
+                  type="text"
+                  placeholder="College Name"
+                  name="college_name"
+                  id="college_name"
+                />
+                <br />
+              </div>
+              <br />
+              <label for="government_approval_letter">
+                Approval Letter
+                <input
+                  required
+                  style="border-bottom: none; font-size: 14px"
+                  type="file"
+                  name="government_approval_letter"
+                  id="government_approval_letter"
+                  accept="application/pdf"
+                />
+              </label>
+              <div style="text-align: center">
+                <button type="submit" value="Upload" class="upload" /> Upload
+                <a href="{% url 'home' %}"></a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>

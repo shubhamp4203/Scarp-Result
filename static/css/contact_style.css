@@ -1,77 +1,12 @@
-#menu {
-  background: linear-gradient(45deg, #fab2ff 10%, #1904e5 100%);
-  width: 300px;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
+.boxy {
+  width: 77vw;
+  position: absolute;
+  padding-left: 2%;
+  padding-top: 5%;
+  max-width: 78vw;
+  font-size: 15px;
 }
 
-a {
-  text-decoration: none;
-}
-#menu .logo {
-  display: flex;
-  align-items: center;
-  color: #fff;
-  padding: 30px 0 0 30px;
-}
-
-#menu .logo img {
-  width: 40px;
-  margin-right: 15px;
-  border-radius: 70%;
-}
-
-#menu .items {
-  margin-top: 40px;
-}
-
-#menu .items li {
-  text-align: center;
-  list-style: none;
-  padding: 30px 0;
-  transition: 10s ease-in;
-}
-
-#menu .items li:hover {
-  background: #07b5ea;
-  cursor: pointer;
-}
-#menu .items li:nth-child(n):hover {
-  border-left: 4px solid #fff;
-  cursor: pointer;
-}
-
-#menu .items li i {
-  color: black;
-  width: 30px;
-  height: 30px;
-  line-height: 30px;
-  text-align: center;
-  font-size: 14px;
-  margin: 0 10px 0 25px;
-}
-
-#menu .items li:hover i,
-#menu .items li:hover a {
-  color: #f3f4f6;
-}
-
-#menu .items li {
-  text-decoration: none;
-  color: rgb(254, 250, 250);
-  font-weight: 300px;
-  transition: 0.3s ease;
-  font-size: large;
-}
-
-.column.middle {
-  width: "64%";
-  margin-left: 20rem;
-  text-align: center;
-  align-content: center;
-  justify-content: center;
-  font-family: "Roboto", Arial, Tahoma, sans-serif;
-  background-color: rgba(255, 255, 255, 0.425);
+ul {
+  list-style-type: none;
 }

@@ -32,7 +32,7 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = "shubhampachchigar0403@gmail.com"
 EMAIL_HOST_PASSWORD = "fmzguezpduodzjpe"
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['10.16.5.167', '127.0.0.1']
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static/"),

@@ -1,0 +1,124 @@
+.boxy {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0.2rem auto;
+  width: 60%;
+  background: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  flex: 1 1 100%;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 2px 2px 20px 10px #00000090;
+  padding: 2rem 2rem;
+}
+
+.mainbox {
+  width: 100vw;
+  height: 100vh;
+}
+
+.boxy .right {
+  padding: 1rem;
+  overflow: hidden;
+}
+
+.boxy .right p {
+  font-size: 14px;
+  color: #b0b3b9;
+}
+
+.boxy .right .inputs {
+  overflow: hidden;
+}
+
+.boxy .right input {
+  width: 100%;
+  padding: 5px;
+  margin-top: 0.5rem;
+
+  font-size: 16px;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #351945;
+}
+
+.boxy .right .remember-me--forget-password {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.boxy .right .remember-me--forget-password input {
+  margin: 0;
+  margin-right: 7px;
+  width: auto;
+}
+
+label {
+  display: block;
+  position: relative;
+  margin-left: 30px;
+}
+
+label::before {
+  content: " \f00c";
+  position: absolute;
+  font-family: FontAwesome;
+  background: transparent;
+  border: 3px solid #70f570;
+  border-radius: 4px;
+  color: transparent;
+  left: -30px;
+  transition: all 0.2s linear;
+}
+
+label:hover::before {
+  font-family: FontAwesome;
+  content: " \f00c";
+  color: #fff;
+  cursor: pointer;
+  background: #70f570;
+}
+
+label:hover::before .text-checkbox {
+  background: #70f570;
+}
+
+label span.text-checkbox {
+  display: inline-block;
+  height: auto;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.2s linear;
+}
+
+label input[type="checkbox"] {
+  display: none;
+}
+
+#messages {
+  background-color: white;
+  color: red;
+  padding: 10px;
+  margin-top: 10px;
+  font-size: 15px;
+  text-align: center;
+}
+
+.upload {
+  width: 5rem;
+  height: 2rem;
+  border-style: none;
+  border-radius: 4px;
+  background-color: #0016b988;
+  color: #ffff;
+  font-size: 15px;
+}
+.upload:hover,
+#sem:hover {
+  background-color: #07b5ea;
+  cursor: pointer;
+}

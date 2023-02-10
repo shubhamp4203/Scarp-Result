@@ -1,5 +1,5 @@
 @media (max-width: 980px) {
-  .box-form {
+  .boxy {
     flex-flow: wrap;
     text-align: center;
     align-content: center;
@@ -10,6 +10,8 @@
 .boxy .right {
   padding: 1rem;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .boxy .right p {
@@ -18,7 +20,11 @@
 }
 
 .boxy .right .inputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   overflow: hidden;
+  align-items: center;
 }
 
 .boxy .right input {
@@ -32,18 +38,6 @@
   border-bottom: 2px solid #351945;
 }
 
-.box-form .right button {
-  color: #fff;
-  font-size: 16px;
-  padding: 12px 35px;
-  border-radius: 50px;
-  display: inline-block;
-  border: 0;
-  outline: 0;
-  box-shadow: 2px 4px 20px 1px #49c628a6;
-  background-image: linear-gradient(135deg, #70f570 10%, #49c628 100%);
-}
-
 .boxy {
   position: absolute;
   top: 50%;
@@ -52,7 +46,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   margin: 0.2rem auto;
-  max-width: 95%;
+  width: 60%;
   background: #ffffff;
   border-radius: 10px;
   overflow: hidden;
@@ -60,7 +54,7 @@
   flex: 1 1 100%;
   align-items: center;
   justify-content: center;
-  box-shadow: 2px 2px 20px 10px #605b5c90;
+  box-shadow: 2px 2px 20px 10px #00000090;
   padding: 2rem 2rem;
 }
 

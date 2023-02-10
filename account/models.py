@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.core.exceptions import ObjectDoesNotExist
-
+from django.utils import timezone
 
 # Create your models here.
 
@@ -15,12 +15,14 @@ class College(models.Model):
     email = models.EmailField(null=True)
     clg_name = models.CharField(max_length=200, null=True, unique=True)
     approval_pdf = models.FileField()
+    created_at = models.DateTimeField(default=timezone.now)
+    status = models.CharField(max_length=100, default="Pending")
 
 class Student(models.Model):
     name = models.CharField(max_length=100, blank=False)
     enrollment_number = models.IntegerField(unique=True, null=True, blank=False)
-    clg_name = models.CharField(max_length=200, blank=False)
-    program_name = models.CharField(max_length=30, blank=False)
+    clg_name = models.CharField(max_length=200, blank=False, null=True)
+    program_name = models.CharField(max_length=30, blank=False, null=True)
 
 class Result(models.Model):
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
@@ -29,6 +31,7 @@ class Result(models.Model):
     percnt = models.FloatField(null=True)
     sgpa = models.FloatField(null=True)
     seat_no = models.CharField(unique=True, max_length=30, null=True)
+    created_at = models.DateTimeField(default=timezone.now)
 
 class Marks(models.Model):
     result = models.ForeignKey(Result, on_delete=models.CASCADE)

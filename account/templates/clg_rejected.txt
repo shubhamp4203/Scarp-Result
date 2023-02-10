@@ -1,0 +1,9 @@
+{% autoescape off %}
+Hello,
+
+We are sorry, but you college registration application has been denied because of incorrect documents. Kindly re-register with proper documents.
+
+Regards,
+Scrap Result
+
+{% endautoescape %}

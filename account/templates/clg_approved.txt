@@ -1,0 +1,10 @@
+{% autoescape off %}
+Hello,
+
+Your college is now successfully registered at our website SCRAP RESULT. You can now login to the website using the following credentials.
+
+Username: {{uname}}
+Password: {{passw}}
+
+
+{% endautoescape %}

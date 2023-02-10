@@ -1,67 +1,75 @@
-{%load static %}
+{% load static %}
+<!DOCTYPE html>
 <html lang="en">
-<head>
-	<link rel="stylesheet" type="text/css" href="{% static 'css/contact_style.css' %}">
-	<link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>contact</title>
-</head>
-<body>
-	<aside id="menu" class="">
-		<div class="logo">
-		  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuifnuAf5eoTwRtNwuLq53TA57V4-IvENVDg&amp;usqp=CAU" alt="">
-  
-		  <h2>SCRAP RESULT</h2>
-		</div>
-  
-		<div class="items">
-			<a href="{% url 'home' %}"><li>Result</li></a>
-			<a href="{% url 'scholarship' %}"><li>Scholarship Detail</li></a>
-			<a href="{% url 'login' %}"><li>Admin Login</li></a>
-			<a href="{% url 'clgregister' %}"><li>College Registration</li></a>
-			<a href="{% url 'contact' %}"><li>Contact us</li></a>
-		</div>
-	  </aside>
-	  <div class="column middle">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-		<div class="section_complete_banner">
-			<div class="faculty_profile_header" style="margin-top: 1.5em; margin-bottom: 1.5em"><b> Important Phone Numbers of:</b></div>
-			<div class="field" style="text-align:left">
-			<div class="section_middle"></div>
-			<div class="faculty_name_header"style="text-align:left">Government Contact:</div>
-			<ul class="vision_mission_list">
-				<li>ADMIN:<a href="tel:+911221212121" style="text-decoration:none">+911221212121</a></li> 
-				<li>email ID:<a href="email:guj.admin@gmail.com">guj.admin@gmail.com</a></li>
-				<li>address: acpc,room 119,admission building,<br>L.D. Engineering College campus,Navarangpura,Ahmedabad</li>
-			</ul>
-			</ul>
-			</div>
-		</div>
-		<div>
-			<div class="college_head"style="text-align:left">College Contact:
-			<ul>
-			<li>Principal:</li>
-				<ul style="list-style-type:disc;">
-					<li>contact:<a href="tel:+912323232323">+912323232323</a></li>
-					<li>email:<a href="email:principal@clg.com">principal@clg.com</a></li>
-					<li>address:college address</li>
-				</ul>
-			<li>Admin:</li>
-			<ul style="list-style-type:disc;">
-				<li>contact:<a href="tel:+912323245323">+912323245323</a></li>
-				<li>email:<a href="email:admin@clg.com">admin@clg.com</a></li>
-				<li>address:college address</li>
-			</ul>			
-		</div>
-		<div class="developer"style="text-align:left">developer Contact:
-			<ul>
-				<li>contact:<a href="tel:+912121212121">+912121212121</a></li>
-				<li>email:<a href="email:developer@gmail.com">developer@gmail.com</a></li>
-				<li>address:college address</li>
-			</ul>
-		</div>
-	</div>
-</body>
+    <title>Contacts</title>
+
+    <link
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/contact_style.css'%}"
+    />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/Base.css'%}" />
+  </head>
+  <body>
+    <div class="mainbox">
+      <aside id="menu">
+        <div class="logo">
+          <div class="icon">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuifnuAf5eoTwRtNwuLq53TA57V4-IvENVDg&usqp=CAU"
+              alt=""
+            />
+          </div>
+          <div class="title">
+            <h3>SCRAP RESULT</h3>
+          </div>
+        </div>
+
+        <div class="items">
+          <a href="{% url 'home' %}"><li>Result</li></a>
+          <a href="{% url 'scholarship' %}"><li>Scholarship Detail</li></a>
+          <a href="{% url 'login' %}"><li>Admin Login</li></a>
+          <a href="{% url 'clgregister' %}"><li>College Registration</li></a>
+          <a href="{% url 'contact' %}"><li>Contact us</li></a>
+        </div>
+      </aside>
+      <div class="inter">
+        <div class="navi">
+          <p id="header">Welcome to scrap result</p>
+        </div>
+        <div class="boxy">
+          <h3>Government Contact</h3>
+          <ul>
+            <li>Admin: +911221212121</li>
+            <li>
+              email ID:
+              <span style="color: blue">guj.admin@gmail.com</span>
+            </li>
+            <li>
+              Address: Acpc,room 119,admission building, L.D. Engineering
+              College campus,Navarangpura,Ahmedabad
+            </li>
+          </ul>
+
+          <h3>College Contact</h3>
+          <ul>
+            <li>Principal: +912323232323</li>
+            <li>
+              email ID: <span style="color: blue">principle@adit.ac.in</span>
+            </li>
+            <li>Address:college address</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

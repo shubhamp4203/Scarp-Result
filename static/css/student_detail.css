@@ -1,0 +1,203 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: "Poppins", sans-serif;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background: #e5e7eb;
+  position: relative;
+  display: flex;
+}
+
+/* .i-name {
+  color: #444a53;
+  padding: 30px 30px 0 30px;
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 70px;
+  margin-right: 20px;
+}
+
+.value {
+  padding: 30px 30px 0 30px;
+  display: flex;
+
+  align-items: center;
+  flex-wrap: wrap;
+} */
+
+/* .value .val-box {
+  background: rgb(116, 213, 12);
+  width: 170px;
+  padding: 5px 15px;
+  border-radius: 139px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+} */
+.upload {
+  width: 5rem;
+  height: 2rem;
+  margin-top: 4rem;
+  border-style: none;
+  border-radius: 4px;
+  background-color: #0016b988;
+  color: #ffff;
+  font-size: 15px;
+}
+.upload:hover,
+#sem:hover {
+  background-color: #07b5ea;
+  cursor: pointer;
+}
+/* .value .val-box svg {
+  font-size: 25px;
+  width: 35px;
+  height: 48px;
+  line-height: 60px;
+  border-radius: 75%;
+  text-align: center;
+  margin-right: 15px;
+}
+
+#heading {
+  font-size: 15px;
+  font-weight: 600;
+} */
+
+/*.value .val-box span{
+    font-size: 15px;
+    color: #828997;
+}*/
+
+.boxy {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0.2rem auto;
+  width: 90vw;
+  height: 90vh;
+  background: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  /*margin-top: 2rem;*/
+  flex: 1 1 100%;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 2px 2px 20px 10px #605b5c90;
+  padding: 2rem 2rem;
+}
+
+#uptable td {
+  text-align: left;
+}
+#midtable td {
+  text-align: center;
+  border: 1px solid black;
+}
+#lasttable td {
+  text-align: left;
+}
+@media (max-width: 956px) {
+  #upheading {
+    padding-left: 9rem;
+  }
+}
+
+@media (max-width: 1029px) {
+  #upheading {
+    padding-left: 12rem;
+  }
+}
+@media (max-width: 769px) {
+  #menu {
+    width: 200px;
+    position: fixed;
+    left: -200px;
+    transition: 0.3 ease;
+  }
+  #menu.active {
+    left: 0px;
+  }
+  #menu-btn {
+    display: initial;
+  }
+  #inter {
+    width: 100%;
+    margin-left: 0px;
+    display: inline-block;
+    transition: 0.3 ease;
+  }
+  #menu.active ~ #inter {
+    width: calc(100% - 200px);
+    margin-left: 200px;
+    transition: 0.3 ease;
+  }
+  #inter .navi {
+    width: 100%;
+  }
+  .value {
+    padding: 30px 30px 0 30px;
+    justify-content: flex-start;
+  }
+  .value .val-box {
+    padding: 16px 20px;
+    margin: 10px 20px 10px 0;
+  }
+  .boxy {
+    width: 92%;
+    padding: 0;
+    overflow-x: auto;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  #upheading {
+    padding-left: 8rem;
+  }
+}
+
+@media (max-width: 477px) {
+  #inter.navi {
+    padding: 15px;
+  }
+  #inter .navi .search input {
+    width: 150px;
+  }
+  .i-name {
+    padding: 30px 15px 0 15px;
+  }
+  .value {
+    padding: 15px 15px 0 15px;
+  }
+  .value .val-box {
+    max-width: 95%;
+    margin: 8px 0;
+  }
+  #heading {
+    text-align: center;
+    padding-left: auto;
+  }
+  .board {
+    margin: 30px 15px 30px 15px;
+  }
+  #upheading {
+    padding-left: 4rem;
+  }
+}
+
+@media (max-width: 534px) {
+  .i-name {
+    margin-top: 100px;
+  }
+  #upheading {
+    padding-left: 2rem;
+  }
+}

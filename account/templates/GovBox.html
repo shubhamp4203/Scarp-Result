@@ -1,0 +1,109 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Government Page</title>
+
+    <link
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/ghome.css'%}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/Base.css'%}" />
+  </head>
+
+  <body>
+    <div class="mainbox">
+      <aside id="menu">
+        <div class="logo">
+          <div class="icon">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuifnuAf5eoTwRtNwuLq53TA57V4-IvENVDg&usqp=CAU"
+              alt=""
+            />
+          </div>
+          <div class="title">
+            <h3>SCRAP RESULT</h3>
+          </div>
+        </div>
+
+        <div class="items">
+          <a href="{% url 'Governmenthome' %}"><li>Results</li></a>
+          <div class="dropdown">
+            <li>Settings</li>
+            <div class="dropdown-content">
+              <a href="{% url 'change_password' %}"><p>Change password</p></a>
+              <p>Change email</p>
+            </div>
+          </div>
+          <a href="{% url 'logout' %}"><li>Log Out</li></a>
+        </div>
+      </aside>
+      <div class="inter">
+        <div class="navi">
+          <p id="header">Welcome to scrap result</p>
+        </div>
+        <div class="whole">
+          <div class="upperFilters">
+            <form type="GET" action="">
+              {% csrf_token %}
+              <input id="clg" type="text" placeholder="College Name" />
+
+              <label for="sem"
+                >Select Sem:
+                <select name="Semester" id="sem">
+                  <option value="1">Sem 1</option>
+                  <option value="2">Sem 2</option>
+                  <option value="3">Sem 3</option>
+                  <option value="4">Sem 4</option>
+                  <option value="5">Sem 5</option>
+                  <option value="6">Sem 6</option>
+                  <option value="7">Sem 7</option>
+                  <option value="8">Sem 8</option>
+                </select>
+              </label>
+            </form>
+          </div>
+        </div>
+
+        <div class="shown_Result" id="shown_Result">
+          <table>
+            {% for student in studentpage %}
+            <tr>
+              <td id="showresult">
+                <a
+                  style="color: black"
+                  href="{% url 'student_detail' student.id %}"
+                >
+                  {{ student.name }}
+                </a>
+              </td>
+            </tr>
+            {% endfor %}
+          </table>
+        </div>
+        <div class="movement">
+          <div class="pagination">
+            <span class="step-links">
+              {% if studentpage.has_previous %}
+              <a href="?page=1"> ⏪</a>
+              <a href="?page={{ studentpage.previous_page_number }}">◀</a>
+              {% endif %}
+
+              <span class="current-page"> {{ studentpage.number }} </span>
+
+              {% if studentpage.has_next %}
+              <a href="?page={{ studentpage.next_page_number }}">▶</a>
+              <a href="?page={{ studentpage.paginator.num_pages }}">⏩ </a>
+              {% endif %}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
