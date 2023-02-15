@@ -29,10 +29,10 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = "shubhampachchigar0403@gmail.com"
-EMAIL_HOST_PASSWORD = "fmzguezpduodzjpe"
+EMAIL_HOST_USER = "test@gmail.com"
+EMAIL_HOST_PASSWORD = "testpassword"
 
-ALLOWED_HOSTS = ['10.16.5.167', '127.0.0.1', '10.1.13.57', '192.168.111.178']
+ALLOWED_HOSTS = []
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static/"),
@@ -93,7 +93,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'web_data',
         'USER': 'root',
-        'PASSWORD': 'Shubham@root11',
+        'PASSWORD': 'test',
         'HOST': 'localhost',
         'PORT': '3306',
     }
