@@ -22,13 +22,16 @@ from .token import account_activation_token
 from django.contrib.auth import get_user_model
 import openpyxl
 import uuid
+import io
 import string
 import random
 from django.conf import settings
 from .models import College, Result, Student, Marks
 from django.core.paginator import Paginator
 from django.shortcuts import render, get_object_or_404
-
+from reportlab.lib import pagesizes
+from reportlab.lib.pagesizes import letter
+from reportlab.pdfgen import canvas
 
 def check_group(*groups):
 
@@ -76,6 +79,7 @@ def loginPage(request):
         return render(request, 'login.html', context)
 
 def homepage(request):
+    clg = College.objects.all()
     if request.method == "POST":
         eroll = request.POST.get('eroll')
         sem = request.POST.get('Semester')
@@ -99,15 +103,16 @@ def homepage(request):
             stdname = i.name
             sgpa = j.sgpa
             percent = j.percnt
-        context = {'sgpa':sgpa, 'percent':percent, 'eroll': eroll, 'clgname': clgname, 'sem':sem, 'seatnumber': seatnumber, 'examname': examname, 'prgname': prgname, 'stdname': stdname, 'marks': marks_info}
+        context = {'sgpa':sgpa, 'percent':percent, 'eroll': eroll, 'clgname': clgname, 'sem':sem, 'seatnumber': seatnumber, 'examname': examname, 'prgname': prgname, 'stdname': stdname, 'marks': marks_info, 'student': student_info[0], 'result': result_info}
         return render(request, 'test_result.html', context)
-    context = {}
+    context = {'college': clg}
     return render(request, 'homepage.html', context)
 
 @csrf_exempt
 @login_required(login_url='login')
 @check_group("Institute")
 def institutehomePage(request):
+    clg = College.objects.all()
     if request.method == "POST":
         clgname = request.POST.get('clg')
         prgname = request.POST.get('program')
@@ -160,29 +165,47 @@ def institutehomePage(request):
             result_obj.percnt = (result_obj.sgpa-0.5)*10
             result_obj.save()
         messages.success(request, "Result uploaded successfully")
-    context = {}
+    context = {'college': clg}
     return render(request, 'admin.html', context)
 
 @login_required(login_url='login')
 @check_group("Government")
 def governmenthomePage(request):
     allstu = Student.objects.all().prefetch_related('result_set').order_by('-result__created_at')
+    clg = College.objects.all()
     paginator = Paginator(allstu, 10)
     page = request.GET.get('page')
     stupage = paginator.get_page(page)
     if request.method == 'GET':
         sem = request.GET.get('Semester')
         clg_name = request.GET.get('clg')
+        mini = request.GET.get('min')
+        maxi = request.GET.get('max')
+        eroll = request.GET.get('eroll')
+        trend = request.GET.get('trend')
         if sem:
             allstu = allstu.filter(result__sem=sem)
         if clg_name:
             allstu = allstu.filter(clg_name=clg_name)
+        if eroll:
+            allstu = allstu.filter(enrollment_number=eroll)
+        if mini:
+            allstu = allstu.filter(result__sgpa__gte=mini)
+        if maxi:
+            allstu = allstu.filter(result__sgpa__lte=maxi)
+        if trend=="low":
+            allstu = allstu.order_by("result__sgpa")
+        if trend=="high":
+            allstu = allstu.order_by("result__sgpa")
+            allstu = allstu.reverse()
+
+
     paginator = Paginator(allstu, 10)
     page = request.GET.get('page')
     stupage = paginator.get_page(page)   
             
             
-    context = {'students': allstu, 'studentpage': stupage}
+    context = {'students': allstu, 'studentpage': stupage, 'college': clg}
     return render(request, 'GovBox.html', context)
 
 
@@ -298,23 +321,25 @@ def accept(request, clg_name):
 
 def reject(request, clg_name):
     clg = get_object_or_404(College, clg_name=clg_name)
-    subject = "College Rejected!"
-    c = {
+    if request.method == "POST":
+        message = request.POST.get('remark')
+        subject = "College Rejected!"
+        c = {
             "email":clg.email,
             'domain':'127.0.0.1:8000',
             'site_name': 'Website',
             'protocol': 'http',
-		}
-    emailrender = render_to_string('clg_rejected.txt', c)
-    try:
-        send_mail(subject, emailrender, settings.EMAIL_HOST_USER , [clg.email], fail_silently=False)
-    except BadHeaderError:
-        return HttpResponse('Invalid header found.')
-    clg.delete()
-    pendingclg = College.objects.filter(status="Pending").order_by("-created_at")
-    paginator = Paginator(pendingclg, 10)
-    page = request.GET.get('page')
-    pendingclg = paginator.get_page(page)
+		    }
+        emailrender = render_to_string('clg_rejected.txt', c)
+        try:
+            send_mail(subject, message, emailrender, settings.EMAIL_HOST_USER , [clg.email], fail_silently=False)
+        except BadHeaderError:
+            return HttpResponse('Invalid header found.')
+        clg.delete()
+        pendingclg = College.objects.filter(status="Pending").order_by("-created_at")
+        paginator = Paginator(pendingclg, 10)
+        page = request.GET.get('page')
+        pendingclg = paginator.get_page(page)
     context = {'pclg': pendingclg}
     return render(request, 'superadmin.html', context=context)
 
@@ -371,6 +396,55 @@ def clg_letter(request, clg_id):
     clg = get_object_or_404(College, pk=clg_id)
     file_path = 'media/' + f"{clg.clg_name}.pdf"
     return FileResponse(open(file_path, 'rb'), content_type='application/pdf')
+
+def generate_pdf(request, student):
+    stu = get_object_or_404(Student, pk=student)
+    res = get_object_or_404(Result, student=stu)
+    marks = Marks.objects.filter(result=res)
+    pdf = generate_result_pdf(stu, marks, res)
+    response = FileResponse(pdf, content_type='application/pdf')
+    response['Content-Disposition'] = 'attachment; filename="student_result.pdf"'
+    return response
+
+
+def generate_result_pdf(student, courses, result):
+    pdf_file = canvas.Canvas("student_result.pdf", pagesize=letter)
+    pdf_file.setFont("Helvetica", 16)
+    
+    pdf_file.drawString(40, 750, "Name: {}".format(student.name))
+    pdf_file.drawString(40, 720, "College: {}".format(student.clg_name))
+    pdf_file.drawString(40, 690, "Enrollment Number: {}".format(student.enrollment_number))
+    pdf_file.drawString(40, 660, "Seat Number: {}".format(result.seat_no))
+    
+    pdf_file.drawString(40,630, "_____________________________________________________________")
+
+    pdf_file.setFont("Helvetica", 12)
+    pdf_file.drawString(40, 600, "Course Code")
+    pdf_file.drawString(130, 600, "Course Name")
+    pdf_file.drawString(420, 600, "Course Credits")
+    pdf_file.drawString(510, 600, "Grade Points")
+    
+    y = 560
+    for course in courses:
+        pdf_file.drawString(40, y, str(course.course_code))
+        pdf_file.drawString(130, y, course.course_name)
+        pdf_file.drawString(420, y, str(course.course_credit))
+        pdf_file.drawString(510, y, str(course.grade))
+        y -= 30
+    pdf_file.setFont("Helvetica", 16)
+    pdf_file.drawString(40,420, "_____________________________________________________________")
+    
+
+    sgpa = sum(course.grade for course in courses) / len(courses)
+    percentage = sgpa * 9.5
+    pdf_file.setFont("Helvetica", 16)
+    pdf_file.drawString(40, y-40, "SGPA: {:.2f}".format(sgpa))
+    pdf_file.drawString(40, y-70, "Percentage: {:.2f}%".format(percentage))
+    
+    buffer = io.BytesIO()
+    pdf_file.save() 
+    buffer.seek(0)
+    return buffer
 
 
 

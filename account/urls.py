@@ -24,7 +24,7 @@ urlpatterns = [
     path('ahome/<int:clg_id>/', views.clg_letter, name='clg_id'),
     path('ahome/accept/<str:clg_name>/', views.accept, name="accept"),
     path('ahome/reject/<str:clg_name>/', views.reject, name="reject"),
-
+    path('generate_pdf/<int:student>/', views.generate_pdf, name='generate_pdf'),
 ]
 
 if settings.DEBUG:

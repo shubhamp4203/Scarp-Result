@@ -85,12 +85,10 @@
                 </select>
                 <br /><br />
                 <label for="clg">Select college: </label>
-                <select name="clg" id="sem">
-                  <option value="adit">Adit</option>
-                  <option value="gcet">Gcet</option>
-                  <option value="mbit">Mbit</option>
-                  <option value="bvm">Bvm</option>
-                  <option value="bvit">Bvit</option>
+                <select id="sem" name="clg">
+                  {% for i in college %}
+                  <option value="{{i.clg_name}}">{{i.clg_name}}</option>
+                  {% endfor%}
                 </select>
                 <br /><br />
                 <label for="excel_file">

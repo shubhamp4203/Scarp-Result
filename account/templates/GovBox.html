@@ -51,11 +51,20 @@
           <div class="upperFilters">
             <form type="GET" action="">
               {% csrf_token %}
-              <input id="clg" type="text" placeholder="College Name" />
+              <label for="sem">
+                Select College:
+                <select id="sem" name="clg">
+                  <option value="">--Select College--</option>
+                  {% for i in college %}
+                  <option value="{{i.clg_name}}">{{i.clg_name}}</option>
+                  {% endfor%}
+                </select></label
+              >
 
               <label for="sem"
                 >Select Sem:
                 <select name="Semester" id="sem">
+                  <option value="">--Select Sem--</option>
                   <option value="1">Sem 1</option>
                   <option value="2">Sem 2</option>
                   <option value="3">Sem 3</option>
@@ -66,21 +75,43 @@
                   <option value="8">Sem 8</option>
                 </select>
               </label>
+              <input type="text" name="eroll" placeholder="Enrollment Number" />
+              <input
+                type="number"
+                name="min"
+                placeholder="Minimum Sgpa"
+                max="10"
+                min="0"
+              />
+              <input
+                type="number"
+                name="max"
+                placeholder="Maximum Sgpa"
+                max="10"
+                min="0"
+              />
+              <select name="trend" id="sem">
+                <option value="">--Select Trend--</option>
+                <option value="high">Highest Sgpa</option>
+                <option value="low">Lowest Sgpa</option>
+              </select>
+              <button class="upload">Search</button>
             </form>
           </div>
         </div>
 
         <div class="shown_Result" id="shown_Result">
-          <table>
+          <table style="border-collapse: collapse; width: 100%">
             {% for student in studentpage %}
-            <tr>
-              <td id="showresult">
-                <a
-                  style="color: black"
-                  href="{% url 'student_detail' student.id %}"
-                >
-                  {{ student.name }}
+            <tr class="showresult">
+              <td>
+                <a href="{% url 'student_detail' student.id %}">
+                  Name: {{ student.name }}
                 </a>
+              </td>
+              <td>
+                Sgpa: {{student.result_set.all.0.sgpa}} &nbsp; Percentage:
+                {{student.result_set.all.0.percnt}}
               </td>
             </tr>
             {% endfor %}

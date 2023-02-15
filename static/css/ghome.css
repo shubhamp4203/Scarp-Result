@@ -51,6 +51,7 @@
   top: 50%;
   background: #ffffff;
   left: 50%;
+  overflow: scroll;
 }
 .upload {
   width: 5rem;
@@ -62,7 +63,8 @@
 }
 .upload:hover,
 #sem:hover,
-#showresult:hover {
+.showresult:hover,
+a:hover {
   background-color: #07b5ea;
   cursor: pointer;
 }
@@ -128,8 +130,12 @@
   color: #1904e5;
 }
 
-#showresult {
+.showresult {
   height: 6.5vh;
-  width: 100vw;
+  width: 33vw;
   border-radius: 10px;
+}
+
+a {
+  color: black;
 }

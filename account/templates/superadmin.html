@@ -55,19 +55,25 @@
                     >{{ clg.clg_name }}</a
                   >
                 </td>
-                <td>
+                <td id="descision">
                   <a style="color: black" href="{% url 'accept' clg.clg_name %}"
                     >✔</a
                   >
                 </td>
-                <td>
-                  <a
-                    style="color: black"
-                    href="{% url 'reject' clg.clg_name %}"
-                  >
-                    ❌</a
-                  >
-                </td>
+                <div id="remark">
+                  <form action="{% url 'reject' clg.clg_name %}" type="Post">
+                    <td id="descision">
+                      {% csrf_token%}
+                      <input
+                        required
+                        type="message"
+                        name="remark"
+                        placeholder="Reject Remark"
+                      />
+                      <button type="submit">❌</button>
+                    </td>
+                  </form>
+                </div>
               </tr>
               {% endfor %}
             </table>
@@ -83,7 +89,7 @@
 
               <span class="current-page"> {{ pclg.number }} </span>
 
-              {% if studentpage.has_next %}
+              {% if pclg.has_next %}
               <a href="?page={{ pclg.next_page_number }}">▶</a>
               <a href="?page={{ pclg.paginator.num_pages }}">⏩ </a>
               {% endif %}
@@ -92,28 +98,36 @@
         </div>
       </div>
     </div>
-  </body>
-  <script>
-    $(document).ready(function () {
-      $("#accept-button").click(function () {
-        $.ajax({
-          url: "/accept/",
-          type: "POST",
-          success: function (response) {
-            console.log(response);
-          },
-        });
-      });
+    <script>
+      main = document.getElementById("main");
+      main.addEventListener("click", Main);
 
-      $("#reject-button").click(function () {
-        $.ajax({
-          url: "/reject/",
-          type: "POST",
-          success: function (response) {
-            console.log(response);
-          },
-        });
-      });
-    });
-  </script>
+      function Main() {
+        function createInputDiv() {
+          let div = document.createElement("div");
+          div.style.margin = "10px";
+
+          let input = document.createElement("input");
+          input.type = "text";
+          input.id = "textInput";
+          input.placeholder = "Enter text here...";
+          input.style.margin = "10px";
+
+          let button = document.createElement("button");
+          button.innerHTML = "Submit";
+          button.style.margin = "10px";
+
+          div.appendChild(input);
+          div.appendChild(button);
+
+          document.body.appendChild(div);
+
+          button.addEventListener("click", function () {
+            let inputValue = document.getElementById("textInput").value;
+          });
+        }
+        createInputDiv();
+      }
+    </script>
+  </body>
 </html>

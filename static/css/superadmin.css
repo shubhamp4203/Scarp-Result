@@ -91,7 +91,15 @@
 
 #showresult {
   height: 6.5vh;
-  width: 50vw;
+  width: 30vw;
   border-radius: 10px;
   pointer-events: all;
+}
+
+#descision {
+  column-width: 2rem;
+}
+
+#remark {
+  display: flex;
 }

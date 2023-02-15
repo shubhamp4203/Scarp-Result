@@ -15,7 +15,7 @@
     <link
       rel="stylesheet"
       type="text/css"
-      href="{% static 'css/pending.css'%}"
+      href="{% static 'css/approved.css'%}"
     />
     <link rel="stylesheet" type="text/css" href="{% static 'css/Base.css'%}" />
   </head>
@@ -44,6 +44,38 @@
       <div class="inter">
         <div class="navi">
           <p id="header">Welcome to scrap result</p>
+        </div>
+        <div class="shown_Result" id="shown_Result">
+          <form type="POST" action="">
+            <table>
+              {% for clg in pclg %}
+              <tr>
+                <td id="showresult">
+                  <a id="clgname" href="{% url 'clg_id' clg.id %}"
+                    >{{ clg.clg_name }}</a
+                  >
+                </td>
+              </tr>
+              {% endfor %}
+            </table>
+          </form>
+        </div>
+        <div class="movement">
+          <div class="pagination">
+            <span class="step-links">
+              {% if pclg.has_previous %}
+              <a href="?page=1"> ⏪</a>
+              <a href="?page={{ pclg.previous_page_number }}">◀</a>
+              {% endif %}
+
+              <span class="current-page"> {{ pclg.number }} </span>
+
+              {% if pclg.has_next %}
+              <a href="?page={{ pclg.next_page_number }}">▶</a>
+              <a href="?page={{ pclg.paginator.num_pages }}">⏩ </a>
+              {% endif %}
+            </span>
+          </div>
         </div>
       </div>
     </div>

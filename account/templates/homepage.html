@@ -40,7 +40,9 @@
             <a href="{% url 'home' %}"><li>Result</li></a>
             <a href="{% url 'scholarship' %}"><li>Scholarship Detail</li></a>
             <a href="{% url 'login' %}"><li>Admin Login</li></a>
-            <a href="{% url 'clgregister' %}"><li>College Registration</li></a>
+            <a href="{% url 'clgregister' %}"
+              ><li>University Registration</li></a
+            >
             <a href="{% url 'contact' %}"><li>Contact us</li></a>
           </div>
         </aside>
@@ -55,16 +57,12 @@
               <div class="inputs">
                 <br />
                 <br />
-                <label for="clg"
-                  >Select college:
-                  <select name="clg" id="sem">
-                    <option value="adit">Adit</option>
-                    <option value="gcet">Gcet</option>
-                    <option value="mbit">Mbit</option>
-                    <option value="bvm">Bvm</option>
-                    <option value="bvit">Bvit</option>
-                  </select>
-                </label>
+                <label for="clg">Select college: </label>
+                <select id="clg" name="clg">
+                  {% for i in college %}
+                  <option value="{{i.clg_name}}">{{i.clg_name}}</option>
+                  {% endfor%}
+                </select>
                 <br /><br />
                 <label for="sem"
                   >Select Sem
