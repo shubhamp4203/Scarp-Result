@@ -1,4 +1,4 @@
-$("#menu-btn").click(function () {
+```$("#menu-btn").click(function () {
   $("#menu").toggleClass("active");
 });
 
@@ -9,3 +9,4 @@ jQuery(document).ready(function () {
     window.print();
   });
 });
+```;

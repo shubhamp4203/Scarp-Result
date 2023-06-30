@@ -76,7 +76,7 @@ def loginPage(request):
             else:
                 messages.info(request, 'Username or password is incorrect')
         context={}
-        return render(request, 'login.html', context)
+        return render(request, 'adminlogin.html', context)
 
 def homepage(request):
     clg = College.objects.all()
@@ -408,7 +408,8 @@ def generate_pdf(request, student):
 
 
 def generate_result_pdf(student, courses, result):
-    pdf_file = canvas.Canvas("student_result.pdf", pagesize=letter)
+    buffer = io.BytesIO()
+    pdf_file = canvas.Canvas(buffer)
     pdf_file.setFont("Helvetica", 16)
     
     pdf_file.drawString(40, 750, "Name: {}".format(student.name))
@@ -440,8 +441,6 @@ def generate_result_pdf(student, courses, result):
     pdf_file.setFont("Helvetica", 16)
     pdf_file.drawString(40, y-40, "SGPA: {:.2f}".format(sgpa))
     pdf_file.drawString(40, y-70, "Percentage: {:.2f}%".format(percentage))
-    
-    buffer = io.BytesIO()
     pdf_file.save() 
     buffer.seek(0)
     return buffer
