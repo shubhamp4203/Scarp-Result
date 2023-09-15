@@ -1,3 +1,4 @@
+rohan 
 # Scrap Result
 
 Scrap Result is a web-based result management platform that allows students to access their results and available scholarships, while universities can upload student results and the government can view and verify university applications and student results.
